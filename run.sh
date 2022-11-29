@@ -1,6 +1,6 @@
 #!/bin/sh
 
-qemu-img resize rpi-os.img 4G
+qemu-img resize rpi-os.img 16G
 
 qemu-system-aarch64 \
 --machine raspi3b \

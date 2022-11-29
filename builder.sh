@@ -8,7 +8,7 @@ IMG_FILE_URL="https://downloads.raspberrypi.org/raspios_lite_arm64/images/raspio
 # Download RaspiOS image
 if [ ! -f $IMG_FILE_NAME ]
 then
-	wget --show-progress $IMG_FILE_URL -O $IMG_FILE_NAME.xz
+    wget --show-progress $IMG_FILE_URL -O $IMG_FILE_NAME.xz
     unxz $IMG_FILE_NAME.xz
 fi
 

@@ -7,7 +7,7 @@ This docker container emulates a Raspberry Pi 3B+ board using qemu native emulat
 * This raspios image was modified to enable ssh and default user pi
 
 ## Build
-* Builder script will download the raspios image, modify it and extract neeeded files.
+* Builder script will download the raspios image, modify it and extract needed files.
 * Builder script will use sudo, must be executed only inside repo folder.
 * Clone this repo: `git clone https://github.com/braghetto/rpivm.git`
 * Cd to repo folder: `cd rpivm`
@@ -23,3 +23,9 @@ This docker container emulates a Raspberry Pi 3B+ board using qemu native emulat
 * Default user: pi
 * Default password: raspberry
 * SSH port: 5022
+
+## Extend root partiton
+* Log into your rpi
+* `sudo parted /dev/mmcblk0 resizepart 2 15GB`
+* `partprobe`
+* `sudo resize2fs /dev/mmcblk0p2`
