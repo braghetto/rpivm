@@ -10,21 +10,19 @@ This docker container emulates a Raspberry Pi 3B+ board using qemu native emulat
 * Builder script will download the raspios image, modify it and extract needed files.
 * Builder script will use sudo, must be executed only inside repo folder.
 * Clone this repo: `git clone https://github.com/braghetto/rpivm.git`
-* Cd to repo folder: `cd rpivm`
+* Change to repo folder: `cd rpivm`
 * Execute builder script: `./builder.sh`
 
 ## Run
-* Run your own build:
-* `docker run -it rpivm`
-* Run my dockerhub build:
-* `docker run -it arthurmb/rpivm:latest`
+* Run your build:
+* `docker run -it rpivm:latest`
 
 ## Login
 * Default user: pi
 * Default password: raspberry
 * SSH port: 5022
 
-## Extend root partiton
+## Extend root partition
 * Just execute this script:
 * `/boot/resizeme.sh`
 * Or into your rpi:
