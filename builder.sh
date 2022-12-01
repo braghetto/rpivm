@@ -18,10 +18,16 @@ mkdir mnt
 # Mount image
 sudo mount -o loop,offset=$IMG_OFFSET $IMG_FILE_NAME $(pwd)/mnt
 
-# Enable sshd and default login user
+# Enable sshd, default login user and create resizeme script
 sudo touch mnt/ssh.txt
 sudo touch mnt/userconf.txt
+sudo touch mnt/resizeme.sh
+sudo chmod +x mnt/resizeme.sh
 echo 'pi:$6$c70VpvPsVNCG0YR5$l5vWWLsLko9Kj65gcQ8qvMkuOoRkEagI90qi3F/Y7rm8eNYZHW8CY6BOIKwMH7a3YYzZYL90zf304cAHLFaZE0' | sudo tee mnt/userconf.txt
+echo '#!/bin/bash' | sudo tee mnt/resizeme.sh
+echo 'sudo parted /dev/mmcblk0 resizepart 2 15GB' | sudo tee -a mnt/resizeme.sh
+echo 'sudo partprobe' | sudo tee -a mnt/resizeme.sh
+echo 'sudo resize2fs /dev/mmcblk0p2' | sudo tee -a mnt/resizeme.sh
 
 # Copy kernel and dtb
 cp mnt/kernel8.img .

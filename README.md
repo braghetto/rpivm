@@ -25,7 +25,9 @@ This docker container emulates a Raspberry Pi 3B+ board using qemu native emulat
 * SSH port: 5022
 
 ## Extend root partiton
-* Log into your rpi
+* Just execute this script:
+* `/boot/resizeme.sh`
+* Or into your rpi:
 * `sudo parted /dev/mmcblk0 resizepart 2 15GB`
 * `partprobe`
 * `sudo resize2fs /dev/mmcblk0p2`
